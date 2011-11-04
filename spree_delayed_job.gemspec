@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.version     = SpreeDelayedJob::VERSION
   s.authors     = ["Giuseppe Privitera"]
   s.email       = ["priviterag@gmail.com"]
-  s.homepage    = ""
+  s.homepage    = "https://github.com/priviterag/spree_delayed_job"
   s.summary     = %q{Spree delayed job}
   s.description = %q{Spree extension gor delayed_job gem}
 
@@ -18,9 +18,6 @@ Gem::Specification.new do |s|
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
 
-  # specify any dependencies here; for example:
-  # s.add_development_dependency "rspec"
-  # s.add_runtime_dependency "rest-client"
   s.add_dependency "delayed_job"
   
 end
