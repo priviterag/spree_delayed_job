@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.email       = ["priviterag@gmail.com"]
   s.homepage    = "https://github.com/priviterag/spree_delayed_job"
   s.summary     = %q{Spree delayed job}
-  s.description = %q{Spree extension gor delayed_job gem}
+  s.description = %q{Spree extension for delayed_job gem}
 
   s.rubyforge_project = "spree_delayed_job"
 
