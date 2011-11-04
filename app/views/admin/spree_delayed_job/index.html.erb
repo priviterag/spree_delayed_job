@@ -1,0 +1,63 @@
+<% content_for :sidebar do %>
+test
+<% end %>
+
+
+<p><h1>Jobs: <%= @jobs.count %></h1></p>
+
+<table id="jobs">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>priority</th>
+      <th>attempts</th>
+      <th>handler</th>
+      <th>failed_at</th>
+      <th>locked_by</th>
+      <th>created_at</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @jobs.reverse.each do |job| %>
+      <tr class="job" id="job-<%= job.id %>">
+        <td><%= job.id %></td>
+        <td><%= job.priority %></td>
+        <td><%= job.attempts %></td>
+        <td><%= truncate(job.handler || '-', :length => 80).gsub('--- !', '') %></td>
+        <td><%= job.failed_at.present? ? job.failed_at.to_s(:short) : '-' %></td>
+        <td><%= job.locked_by || '-' %></td>
+        <td><%= job.created_at.to_s(:short) %></td>
+      </tr>
+      <tr class="job-details" id="job-details-<%= job.id %>" style="display: none;">
+        <td colspan="11">
+          <p><pre><%= job.to_yaml %></pre></p>
+          <p>
+            <pre>
+            <%= job.last_error.to_s.gsub("\\n", "\n") %>
+            </pre>
+          </p>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<script>
+  $(document).ready(function(){
+
+    $(".job").hover(
+      function () {
+        $(this).css("cursor", "pointer");
+        $(this).addClass("hover");
+      },
+      function () {
+        $(this).removeClass("hover");
+      }
+    );
+
+    $(".job").click(function(event){
+      $(this).next("tr").toggle();
+    });
+
+  });
+</script>

@@ -1,4 +1,5 @@
 require "spree_delayed_job/version"
+require "spree_delayed_job/delayed_rake"
 
 module SpreeDelayedJob
   class Engine < Rails::Engine
