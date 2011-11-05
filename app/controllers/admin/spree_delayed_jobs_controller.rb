@@ -8,11 +8,7 @@ class Admin::SpreeDelayedJobsController < Admin::BaseController
   end
   
   def create
-    if params[:rake]
-      Delayed::Job.enqueue(SpreeDelayedJob::DelayedRake.new(params[:job]))
-    else
-      Delayed::Job.enqueue(params[:job])
-    end
+    Delayed::Job.enqueue(SpreeDelayedJob::DelayedRake.new(params[:job]))
     redirect_to :admin_spree_delayed_jobs
   end
 end

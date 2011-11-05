@@ -3,8 +3,8 @@
   <div class="box">
     <h1>Run Jobs</h1>
     <ul class="sidebar" data-hook="spree_delayed_jobs">
-      <li><%= button_to "rake assets:clear", :action => "create" , :job => "assets:clear", :rake => true %></li>
-      <li><%= button_to "rake assets:precompile", :action => "create" , :job => "assets:precompile", :rake => true %></li>
+      <li><%= button_to "rake assets:clear", :action => "create" , :job => "assets:clear" %></li>
+      <li><%= button_to "rake assets:precompile", :action => "create" , :job => "assets:precompile" %></li>
     </ul>
   </div>
 <% end %>

@@ -1,0 +1,46 @@
+h1. Spree delayed job
+
+The extension add a tab to the admin page to run jobs and display running jobs. 
+It's based on the "delayed_job":https://github.com/collectiveidea/delayed_job and "delayed_job_admin":https://github.com/trevorturk/delayed_job_admin  
+
+h2. Installation
+
+To install, add delayed_job and spree_delayed_job to your @Gemfile@ and run `bundle install`:
+
+<pre>
+gem 'delayed_job'
+gem 'spree_delayed_job'
+</pre>
+
+After spree_delayed_job is installed, run the following commands: (see "delayed_job":https://github.com/collectiveidea/delayed_job for detailed info)
+
+<pre>
+$ script/rails generate delayed_job
+$ rake db:migrate
+$ script/delayed_job start
+</pre>
+
+
+h2. Configuration
+
+To add your jobs simply override (using Deface) or replace the app/views/admin/shared/_spree_delayed_job.html.erb: 
+
+<pre>
+<!-- some sample tasks --> 
+<% content_for :sidebar do %> 
+  <div class="box"> 
+    <h1>Run Jobs</h1> 
+    <ul class="sidebar" data-hook="spree_delayed_jobs"> 
+      <li><%= button_to "rake assets:clear", :action => "create" , :job => "assets:clear" %></li> 
+      <li><%= button_to "rake assets:precompile", :action => "create" , :job => "assets:precompile" %></li> 
+    </ul> 
+  </div> 
+<% end %> 
+</pre>
+
+PLEASE NOTE: the gem it's still under development and with this version you can run only rake tasks. 
+
+This project is released under MIT-LICENSE.
+
+
+
