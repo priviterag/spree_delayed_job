@@ -23,7 +23,7 @@ $ script/delayed_job start
 
 h2. Configuration
 
-To add your jobs simply override (using Deface) or replace the app/views/admin/shared/_spree_delayed_job.html.erb: 
+To add your jobs simply override (using Deface) or replace the app/views/spree/admin/shared/_spree_delayed_job.html.erb: 
 
 <pre>
 <!-- some sample tasks --> 
