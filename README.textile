@@ -8,14 +8,14 @@ h2. Installation
 To install, add delayed_job and spree_delayed_job to your @Gemfile@ and run `bundle install`:
 
 <pre>
-gem 'delayed_job'
+gem 'delayed_job_active_record'
 gem 'spree_delayed_job'
 </pre>
 
 After spree_delayed_job is installed, run the following commands: (see "delayed_job":https://github.com/collectiveidea/delayed_job for detailed info)
 
 <pre>
-$ script/rails generate delayed_job
+$ rails generate delayed_job:active_record
 $ rake db:migrate
 $ script/delayed_job start
 </pre>
